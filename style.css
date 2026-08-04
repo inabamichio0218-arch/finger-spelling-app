@@ -77,7 +77,8 @@ button {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(5px, 1.5vw, 10px);
+  row-gap: clamp(14px, 2.4svh, 22px);
+　column-gap: clamp(5px, 1.5vw, 10px);
 }
 
 .kana-button {
