@@ -68,7 +68,7 @@ button {
 
 .kana-menu {
   display: flex;
-  width: min(82vw, 410px);
+  width: min(90vw, 440px);
   flex-direction: column;
   align-items: center;
 }
@@ -77,8 +77,8 @@ button {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  row-gap: clamp(14px, 2.4svh, 22px);
-　column-gap: clamp(5px, 1.5vw, 10px);
+  row-gap: clamp(24px, 3.5svh, 34px);
+　column-gap: clamp(14px, 3vw, 20px);
 }
 
 .kana-button {
@@ -121,7 +121,7 @@ button {
 
 .other-button {
   width: 72%;
-  margin-top: clamp(8px, 1.8svh, 16px);
+  margin-top: clamp(24px, 3.5svh, 34px);
   border-radius: 18px;
 }
 
