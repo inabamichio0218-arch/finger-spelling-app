@@ -11,7 +11,8 @@
     ma:    { label: 'ま行', file: 'ma.mp4' },
     ya:    { label: 'や行', file: 'ya.mp4' },
     ra:    { label: 'ら行', file: 'ra.mp4' },
-    other: { label: 'その他', file: 'other.mp4' }
+    other: { label: 'その他', file: 'other.mp4' },
+    omake: { label: 'おまけ', file: 'cat.mp4' }
   };
 
   const homeScreen = document.getElementById('homeScreen');
