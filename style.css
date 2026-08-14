@@ -265,7 +265,9 @@ button {
     justify-content: center;
   }
 
-  .app-title,
+  .app-title {
+  width: min(78vw, 350px);
+}
   .kana-menu {
     width: min(50vh, 410px);
   }
