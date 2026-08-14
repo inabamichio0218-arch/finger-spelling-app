@@ -1,4 +1,4 @@
-const CACHE_NAME = 'finger-spelling-shell-v1';
+const CACHE_NAME = 'finger-spelling-shell-v2';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -16,6 +16,7 @@ const SHELL_FILES = [
   './images/btn-ya.png',
   './images/btn-ra.png',
   './images/btn-other.png',
+  './images/btn-omake.png'
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-maskable-512.png',
