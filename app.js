@@ -134,7 +134,7 @@ function navigateMaker() {
   makerBackButton.addEventListener('click', navigateHome);
   homeButton.addEventListener('click', navigateHome);
 makerYoutubeButton.addEventListener('click', () => {
-  window.open('https://www.youtube.com/@PowerPoint-MVP', '_blank', 'noopener');
+  window.location.href = 'https://www.youtube.com/@PowerPoint-MVP';
 });
   replayButton.addEventListener('click', async () => {
     endActions.hidden = true;
