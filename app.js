@@ -17,6 +17,9 @@
 
   const homeScreen = document.getElementById('homeScreen');
   const playerScreen = document.getElementById('playerScreen');
+  const makerScreen = document.getElementById('makerScreen');
+　const makerBackButton = document.getElementById('makerBackButton');
+　const makerYoutubeButton = document.getElementById('makerYoutubeButton');
   const video = document.getElementById('learningVideo');
   const videoHeading = document.getElementById('videoHeading');
   const backButton = document.getElementById('backButton');
@@ -39,6 +42,7 @@
   function showHome({ restoreFocus = true } = {}) {
     stopVideo();
     playerScreen.hidden = true;
+    makerScreen.hidden = true;
     homeScreen.hidden = false;
     document.body.classList.remove('is-playing');
     document.title = 'AI動画で学ぶ 指文字';
@@ -48,7 +52,15 @@
       requestAnimationFrame(() => lastFocusedButton.focus());
     }
   }
-
+function showMaker() {
+  stopVideo();
+  homeScreen.hidden = true;
+  playerScreen.hidden = true;
+  makerScreen.hidden = false;
+  document.body.classList.remove('is-playing');
+  document.title = 'つくった人 | AI動画で学ぶ 指文字';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
   async function showVideo(key, { autoplay = true } = {}) {
     const item = videos[key];
     if (!item) {
@@ -86,7 +98,17 @@
     history.pushState({ key }, '', newHash);
     showVideo(key, { autoplay: true });
   }
+function navigateMaker() {
+  const newHash = '#maker';
 
+  if (window.location.hash === newHash) {
+    showMaker();
+    return;
+  }
+
+  history.pushState({ key: 'maker' }, '', newHash);
+  showMaker();
+}
   function navigateHome() {
     if (window.location.hash) {
       history.back();
@@ -96,15 +118,24 @@
   }
 
   menuButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      lastFocusedButton = button;
-      navigateToVideo(button.dataset.key);
-    });
+  button.addEventListener('click', () => {
+    lastFocusedButton = button;
+    const key = button.dataset.key;
+
+    if (key === 'maker') {
+      navigateMaker();
+    } else {
+      navigateToVideo(key);
+    }
   });
+});
 
   backButton.addEventListener('click', navigateHome);
+  makerBackButton.addEventListener('click', navigateHome);
   homeButton.addEventListener('click', navigateHome);
-
+makerYoutubeButton.addEventListener('click', () => {
+  window.open('https://www.youtube.com/@PowerPoint-MVP', '_blank', 'noopener');
+});
   replayButton.addEventListener('click', async () => {
     endActions.hidden = true;
     video.currentTime = 0;
@@ -125,13 +156,16 @@
   });
 
   window.addEventListener('popstate', () => {
-    const key = window.location.hash.slice(1);
-    if (videos[key]) {
-      showVideo(key, { autoplay: false });
-    } else {
-      showHome();
-    }
-  });
+  const key = window.location.hash.slice(1);
+
+  if (key === 'maker') {
+    showMaker();
+  } else if (videos[key]) {
+    showVideo(key, { autoplay: false });
+  } else {
+    showHome();
+  }
+});
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !playerScreen.hidden) {
@@ -140,11 +174,14 @@
   });
 
   const initialKey = window.location.hash.slice(1);
-  if (videos[initialKey]) {
-    showVideo(initialKey, { autoplay: false });
-  } else {
-    showHome({ restoreFocus: false });
-  }
+
+if (initialKey === 'maker') {
+  showMaker();
+} else if (videos[initialKey]) {
+  showVideo(initialKey, { autoplay: false });
+} else {
+  showHome({ restoreFocus: false });
+}
 
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     window.addEventListener('load', () => {
