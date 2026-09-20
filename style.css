@@ -122,8 +122,8 @@ button {
 .bottom-buttons {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(12px, 2.5vw, 18px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.8vw, 12px);
   margin-top: clamp(24px, 3.5svh, 34px);
 }
 
@@ -305,4 +305,32 @@ button {
   .kana-button {
     transition: none;
   }
+}
+.maker-screen {
+  min-height: 100svh;
+}
+
+.maker-stage {
+  position: relative;
+  width: min(100%, 430px);
+  margin: 0 auto;
+}
+
+.maker-stage > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.maker-youtube-link {
+  position: absolute;
+  left: 43%;
+  top: 72%;
+  width: 44%;
+  height: 9%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px;
 }
