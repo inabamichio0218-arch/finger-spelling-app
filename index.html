@@ -54,13 +54,17 @@
         </button>
       </div>
 
-      <div class="bottom-buttons">
+<div class="bottom-buttons">
   <button class="kana-button bottom-button" type="button" data-key="other" aria-label="その他の指文字の動画を見る">
     <img src="images/btn-other.png" alt="">
   </button>
 
   <button class="kana-button bottom-button" type="button" data-key="omake" aria-label="おまけ動画を見る">
     <img src="images/btn-omake.png" alt="">
+  </button>
+
+  <button class="kana-button bottom-button" type="button" data-key="maker" aria-label="このアプリを作った人を見る">
+    <img src="images/btn-maker.png" alt="">
   </button>
 </div>
     </nav>
@@ -89,7 +93,30 @@
       </div>
     </div>
   </main>
+<main id="makerScreen" class="screen maker-screen" hidden>
 
+  <header class="player-header">
+    <button id="makerBackButton" class="back-button" type="button" aria-label="トップ画面に戻る">
+      <span aria-hidden="true">‹</span>
+      <span>もどる</span>
+    </button>
+
+    <h2 class="video-heading">つくった人</h2>
+
+    <span class="header-spacer" aria-hidden="true"></span>
+  </header>
+
+  <div class="maker-stage">
+    <img src="images/maker-profile.png" alt="このアプリを作った人の紹介">
+
+    <button id="makerYoutubeButton"
+            class="maker-youtube-link"
+            type="button"
+            aria-label="YouTubeチャンネル I Love PowerPoint を開く">
+    </button>
+  </div>
+
+</main>
   <script src="app.js" defer></script>
 </body>
 </html>
