@@ -334,3 +334,17 @@ button {
   cursor: pointer;
   border-radius: 999px;
 }
+.maker-home-button {
+  position: absolute;
+  left: 6%;
+  bottom: 4%;
+  width: 88%;
+  height: 8%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(70, 80, 72, 0.95);
+  color: white;
+  font-size: clamp(20px, 5.5vw, 30px);
+  font-weight: 700;
+  cursor: pointer;
+}
